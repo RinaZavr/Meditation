@@ -1,23 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:meditation/main_screen/playlist_screen/view/playlist_view.dart';
+import 'package:meditation/consts/string_const.dart';
+import 'package:meditation/consts/value_consts.dart';
+import 'package:meditation/main_screen/state/main_state.dart';
+import 'package:provider/provider.dart';
 
-class AlbumTrackTemplate extends StatelessWidget {
+class AlbumTrackTemplate extends StatefulWidget {
   final List _audioData;
   const AlbumTrackTemplate(this._audioData, {super.key});
 
   @override
+  State<AlbumTrackTemplate> createState() => _AlbumTrackTemplateState();
+}
+
+class _AlbumTrackTemplateState extends State<AlbumTrackTemplate> {
+  @override
   Widget build(BuildContext context) {
+    MainState state = Provider.of<MainState>(context);
+
     return Card(
       child: ListTile(
-        leading: const Icon(Icons.music_note),
-        title: Text(_audioData[0]),
+        leading: Icon(
+          Icons.music_note,
+          color: Colors.orange[200],
+        ),
+        title: Text(widget._audioData[0]),
         onTap: () {
-          Navigator.push(
-            context, 
-            MaterialPageRoute<void>(
-              builder: (BuildContext context) => const PlaylistView(),
-            ),
-          );
+          state.changeCurrentAudioData(widget._audioData);
+          state.choiceTracks == labelAlbum ? Navigator.pop(context) : print(":)");
+          state.changeIndex(playerTabIndex);
         }
       ),
     );

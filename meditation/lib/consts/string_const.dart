@@ -12,3 +12,7 @@ const String meditationStressTitle  = 'Для снижения стресса';
 const String meditationSleepSubtitle = 'Для сна сна сна';
 const String meditationEveryDaySubtitle = 'На день день день';
 const String meditationStressSubtitle  = 'От стресса стресса стресса';
+
+const String labelAlbum = "Альбом";
+const String labelPlaylist = "Плейлист";
+const String labelPlayer = "Плеер";

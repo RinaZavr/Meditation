@@ -9,7 +9,13 @@ class AlbumView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Album'),
+        title: const Text(
+          labelAlbum,
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+        backgroundColor: Colors.orange[100],
       ),
       body: const Column(
         children: [
